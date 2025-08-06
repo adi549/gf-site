@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Do You Still Love Me?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #fff0f5;
+      padding-top: 50px;
+    }
+
+    img {
+      width: 300px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #ff4081;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .yes-btn {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .no-btn {
+      background-color: #f44336;
+      color: white;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Do You Still Love Me?</h1>
+  <img id="sticker" src="normal.webp" alt="Sticker GIF">
+  <p id="loveMessage" style="display: none; font-size: 24px; color: #e91e63; font-weight: bold;">
+  Aww, I love you too 💖
+</p>
+
+
+  <div>
+    <button class="yes-btn" onclick="handleYes()">Yes</button>
+    <button class="no-btn" onclick="handleNo()">No</button>
+  </div>
+
+  <script>
+  let isMad = false;
+
+  function handleNo() {
+    const img = document.getElementById("sticker");
+    const noBtn = document.querySelector(".no-btn");
+
+    // change image to mad
+    if (!isMad) {
+      img.src = "mad.webp";
+      isMad = true;
+    } else {
+      img.src = "mad.webp";
+    }
+
+    // move the "No" button randomly
+    const x = Math.floor(Math.random() * (window.innerWidth - 100));
+    const y = Math.floor(Math.random() * (window.innerHeight - 100));
+
+    noBtn.style.position = "absolute";
+    noBtn.style.left = `${x}px`;
+    noBtn.style.top = `${y}px`;
+  }
+
+  function handleYes() {
+  const img = document.getElementById("sticker");
+  const yesBtn = document.querySelector(".yes-btn");
+  const noBtn = document.querySelector(".no-btn");
+  const loveMessage = document.getElementById("loveMessage");
+
+  img.src = "love.webp";
+  isMad = false;
+
+  yesBtn.style.display = "none";
+  noBtn.style.display = "none";
+  loveMessage.style.display = "block"; // show sweet message
+}
+
+
+</script>
+
+
+</body>
+</html>
